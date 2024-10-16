@@ -12271,7 +12271,7 @@ h2 {
   font-weight: 400;
 }
 
-.home_text, 
+
   .home .fas, .homeLab, 
   .plans .far,
   .information .fas,
@@ -12280,6 +12280,14 @@ h2 {
   .location .far,
   .location .fas {
   padding: 15px 0;
+  background: var(--gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.home_text {
+  padding: 0px;
   background: var(--gradient);
   background-clip: text;
   -webkit-background-clip: text;

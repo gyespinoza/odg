@@ -3,11 +3,10 @@
     <principal-nav-bar />
     <section class="home py-8 d-flex align-items-center" id="header">
       <div class="container" data-aos="zoom-in">
-        <h1 class="headline text-white" style="margin-top:15rem; font-size: 5.5vw">
-          Observatorio <br />de <span class="home_text">Género</span><br />
-          
+        <h1 class="headline text-white" style="margin-top:15rem; font-size: 5vw;">
+          Observatorio de <span class="home_text">Género</span><br />          
         </h1>
-        <h2 class="text-white" style="font-size: 2.5vw">Universidad
+        <h2 class="text-white" style="font-size: 2vw">Universidad
           Gerardo Barrios</h2><br />
           <a href="#about" class="bHome text-whire">
 						DESCUBRE MÁS <span class="fa-solid fa-angle-right"></span>
