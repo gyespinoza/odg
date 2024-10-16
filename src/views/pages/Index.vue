@@ -3,12 +3,14 @@
         <information />
         <about />
         <Dimensions />
+        <Testimonials />
   </div>
 </template>
 <script>
 import Dimensions from "@/components/Home/Dimensions.vue";
 import Information from "@/components/Home/Information.vue";
 import About from '@/components/Home/About.vue';
+import Testimonials from "@/components/Home/Testimonials.vue";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -19,9 +21,10 @@ export default {
     Dimensions,
     Information,
     About,
+    Testimonials
   },
-  mounted() {
-        AOS.init({});
+  mounted() {   
+     AOS.init({});
   }
 };
 </script>

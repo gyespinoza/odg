@@ -2,13 +2,18 @@
   <div>
     <principal-nav-bar />
     <section class="home py-8 d-flex align-items-center" id="header">
-      <div class="container" data-aos="fade-right">
-        <h1 class="headline text-white" style="margin-top:25rem">
-          Observatorio de <span class="home_text">Género</span><br />Universidad
-          Gerardo Barrios
+      <div class="container" data-aos="zoom-in">
+        <h1 class="headline text-white" style="margin-top:15rem; font-size: 5.5vw">
+          Observatorio <br />de <span class="home_text">Género</span><br />
+          
         </h1>
-        <p class="para para-light py-3"></p>
+        <h2 class="text-white" style="font-size: 2.5vw">Universidad
+          Gerardo Barrios</h2><br />
+          <a href="#about" class="bHome text-whire">
+						DESCUBRE MÁS <span class="fa-solid fa-angle-right"></span>
+					</a>
       </div>
+      
       <!-- end of container -->
     </section>
 
@@ -47,3 +52,14 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.bHome {
+  float: left;
+  padding: 1vw 3vw;
+  background: var(--primary);
+  color: #fff;
+  font-size: 1vw;
+
+}
+</style>

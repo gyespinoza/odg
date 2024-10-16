@@ -28,6 +28,7 @@
     "devextreme-vue": "24.1.5",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
+    "swiper": "^11.1.14",
     "vue": "3.0.7",
     "vue-gauge": "^1.0.3",
     "vue-router": "4.0.5"
