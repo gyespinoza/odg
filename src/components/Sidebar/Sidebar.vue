@@ -7,7 +7,7 @@
     >
       <!-- Toggler -->
       <button
-        class="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none bg-transparent rounded border border-solid border-transparent"
+        class="cursor-pointer text-black opacity-50 md:hidden px-3 py-1 text-xl leading-none  rounded border border-solid border-transparent"
         type="button"
         v-on:click="toggleCollapseShow('bg-white m-2 py-3 px-6')"
       >
@@ -18,18 +18,10 @@
         class="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
         to="/"
       >
-        Vue Notus
+        ODG | UGB
       </router-link>
-      <!-- User -->
-      <ul class="md:hidden items-center flex flex-wrap list-none">
-        <li class="inline-block relative">
-          <notification-dropdown />
-        </li>
-        <li class="inline-block relative">
-          <user-dropdown />
-        </li>
-      </ul>
-      <!-- Collapse -->
+      
+  
       <div
         class="md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded"
         v-bind:class="collapseShow"
@@ -44,7 +36,7 @@
                 class="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
                 to="/"
               >
-                Vue Notus
+                ODG | UGB
               </router-link>
             </div>
             <div class="w-6/12 flex justify-end">
@@ -72,17 +64,17 @@
         <!-- Divider -->
         <hr class="my-4 md:min-w-full" />
         <!-- Heading -->
-        <h6
+        <!--h6
           class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
         >
-          Admin Layout Pages
-        </h6>
+          Navegación
+        </h6-->
         <!-- Navigation -->
 
         <ul class="md:flex-col md:min-w-full flex flex-col list-none">
           <li class="items-center">
             <router-link
-              to="/admin/dashboard"
+              to="/dashboard"
               v-slot="{ href, navigate, isActive }"
             >
               <a
@@ -91,7 +83,7 @@
                 class="text-xs uppercase py-3 font-bold block"
                 :class="[
                   isActive
-                    ? 'text-emerald-500 hover:text-emerald-600'
+                    ? 'text-color hover:text-emerald-600'
                     : 'text-blueGray-700 hover:text-blueGray-500',
                 ]"
               >
@@ -103,243 +95,97 @@
               </a>
             </router-link>
           </li>
-
-          <li class="items-center">
-            <router-link
-              to="/admin/settings"
-              v-slot="{ href, navigate, isActive }"
-            >
-              <a
-                :href="href"
-                @click="navigate"
-                class="text-xs uppercase py-3 font-bold block"
-                :class="[
-                  isActive
-                    ? 'text-emerald-500 hover:text-emerald-600'
-                    : 'text-blueGray-700 hover:text-blueGray-500',
-                ]"
-              >
-                <i
-                  class="fas fa-tools mr-2 text-sm"
-                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
-                ></i>
-                Settings
-              </a>
-            </router-link>
-          </li>
-
-          <li class="items-center">
-            <router-link
-              to="/admin/tables"
-              v-slot="{ href, navigate, isActive }"
-            >
-              <a
-                :href="href"
-                @click="navigate"
-                class="text-xs uppercase py-3 font-bold block"
-                :class="[
-                  isActive
-                    ? 'text-emerald-500 hover:text-emerald-600'
-                    : 'text-blueGray-700 hover:text-blueGray-500',
-                ]"
-              >
-                <i
-                  class="fas fa-table mr-2 text-sm"
-                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
-                ></i>
-                Tables
-              </a>
-            </router-link>
-          </li>
-
-          <li class="items-center">
-            <router-link to="/admin/maps" v-slot="{ href, navigate, isActive }">
-              <a
-                :href="href"
-                @click="navigate"
-                class="text-xs uppercase py-3 font-bold block"
-                :class="[
-                  isActive
-                    ? 'text-emerald-500 hover:text-emerald-600'
-                    : 'text-blueGray-700 hover:text-blueGray-500',
-                ]"
-              >
-                <i
-                  class="fas fa-map-marked mr-2 text-sm"
-                  :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
-                ></i>
-                Maps
-              </a>
-            </router-link>
-          </li>
         </ul>
-
         <!-- Divider -->
         <hr class="my-4 md:min-w-full" />
         <!-- Heading -->
         <h6
           class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
         >
-          Auth Layout Pages
+          Análisis Institucional
         </h6>
         <!-- Navigation -->
 
         <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
           <li class="items-center">
             <router-link
-              class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-              to="/auth/login"
+              class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 block"
+              to="/dimensions/composition"              
             >
-              <i class="fas fa-fingerprint text-blueGray-300 mr-2 text-sm"></i>
-              Login
-            </router-link>
-          </li>
-
-          <li class="items-center">
-            <router-link
-              class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-              to="/auth/register"
-            >
-              <i
-                class="fas fa-clipboard-list text-blueGray-300 mr-2 text-sm"
+              <i class="fas fa-city	text-blueGray-300 mr-2 text-sm"
               ></i>
-              Register
-            </router-link>
-          </li>
-        </ul>
-
-        <!-- Divider -->
-        <hr class="my-4 md:min-w-full" />
-        <!-- Heading -->
-        <h6
-          class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
-        >
-          No Layout Pages
-        </h6>
-        <!-- Navigation -->
-
-        <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
-          <li class="items-center">
-            <router-link
-              class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-              to="/landing"
-            >
-              <i class="fas fa-newspaper text-blueGray-300 mr-2 text-sm"></i>
-              Landing Page
+              Comunidad académica
             </router-link>
           </li>
 
           <li class="items-center">
             <router-link
-              class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-              to="/profile"
+              class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3  block"
+              to="/dimensions/access"
             >
-              <i class="fas fa-user-circle text-blueGray-300 mr-2 text-sm"></i>
-              Profile Page
+              <i class="fa fa-graduation-cap text-blueGray-300 mr-2 text-sm"></i>
+              Acceso, permanencia y logros
             </router-link>
           </li>
         </ul>
 
-        <!-- Divider -->
+
+         <!-- Divider -->
+         <hr class="my-4 md:min-w-full" />
+         <!-- Heading -->
+         <h6
+           class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
+         >
+           Bienestar Universitario
+         </h6>
+         <!-- Navigation -->
+ 
+         <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
+           <li class="items-center">
+             <router-link
+               class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 block"
+               to="/dimensions/resources"
+             >
+               <i class="fas fa-users text-blueGray-300 mr-2 text-sm"></i>
+               Recursos y apoyo
+             </router-link>
+           </li>
+ 
+           <li class="items-center">
+             <router-link
+               class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3  block"
+               to="/dimensions/Inclusive"
+             >
+               <i class="fas fa-circle-nodes text-blueGray-300 mr-2 text-sm"></i>
+               Ambiente inclusivo
+             </router-link>
+           </li>
+
+           <li class="items-center">
+            <router-link
+              class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3  block"
+              to="/dimensions/Conditioning"
+            >
+              <i class="fas fa-scale-unbalanced text-blueGray-300 mr-2 text-sm"></i>
+              Condicionamiento y discriminación social
+            </router-link>
+          </li>
+         </ul>
+ 
+          <!-- Divider -->
         <hr class="my-4 md:min-w-full" />
         <!-- Heading -->
         <h6
           class="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
         >
-          Documentation
+          Laboratorio de género
         </h6>
         <!-- Navigation -->
+
         <ul class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
-          <li class="inline-flex">
-            <a
-              href="https://www.creative-tim.com/learning-lab/tailwind/vue/colors/notus"
-              target="_blank"
-              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-            >
-              <i
-                class="fas fa-paint-brush mr-2 text-blueGray-300 text-base"
-              ></i>
-              Styles
-            </a>
-          </li>
+       </ul>
 
-          <li class="inline-flex">
-            <a
-              href="https://www.creative-tim.com/learning-lab/tailwind/vue/alerts/notus"
-              target="_blank"
-              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-            >
-              <i class="fab fa-css3-alt mr-2 text-blueGray-300 text-base"></i>
-              CSS Components
-            </a>
-          </li>
 
-          <li class="inline-flex">
-            <a
-              href="https://www.creative-tim.com/learning-lab/tailwind/angular/overview/notus"
-              target="_blank"
-              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-            >
-              <i class="fab fa-angular mr-2 text-blueGray-300 text-base"></i>
-              Angular
-            </a>
-          </li>
-
-          <li class="inline-flex">
-            <a
-              href="https://www.creative-tim.com/learning-lab/tailwind/js/overview/notus"
-              target="_blank"
-              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-            >
-              <i class="fab fa-js-square mr-2 text-blueGray-300 text-base"></i>
-              Javascript
-            </a>
-          </li>
-
-          <li class="inline-flex">
-            <a
-              href="https://www.creative-tim.com/learning-lab/tailwind/nextjs/overview/notus"
-              target="_blank"
-              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-            >
-              <i class="fab fa-react mr-2 text-blueGray-300 text-base"></i>
-              NextJS
-            </a>
-          </li>
-
-          <li class="inline-flex">
-            <a
-              href="https://www.creative-tim.com/learning-lab/tailwind/react/overview/notus"
-              target="_blank"
-              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-            >
-              <i class="fab fa-react mr-2 text-blueGray-300 text-base"></i>
-              React
-            </a>
-          </li>
-
-          <li class="inline-flex">
-            <a
-              href="https://www.creative-tim.com/learning-lab/tailwind/svelte/overview/notus"
-              target="_blank"
-              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-            >
-              <i class="fas fa-link mr-2 text-blueGray-300 text-base"></i>
-              Svelte
-            </a>
-          </li>
-
-          <li class="inline-flex">
-            <a
-              href="https://www.creative-tim.com/learning-lab/tailwind/vue/overview/notus"
-              target="_blank"
-              class="text-blueGray-700 hover:text-blueGray-500 text-sm block mb-4 no-underline font-semibold"
-            >
-              <i class="fab fa-vuejs mr-2 text-blueGray-300 text-base"></i>
-              VueJS
-            </a>
-          </li>
-        </ul>
       </div>
     </div>
   </nav>
@@ -347,8 +193,8 @@
 ); }
 
 <script>
-import NotificationDropdown from "@/components/Dropdowns/NotificationDropdown.vue";
-import UserDropdown from "@/components/Dropdowns/UserDropdown.vue";
+//import NotificationDropdown from "@/components/Dropdowns/NotificationDropdown.vue";
+//import UserDropdown from "@/components/Dropdowns/UserDropdown.vue";
 
 export default {
   data() {
@@ -362,8 +208,6 @@ export default {
     },
   },
   components: {
-    NotificationDropdown,
-    UserDropdown,
   },
 };
 </script>

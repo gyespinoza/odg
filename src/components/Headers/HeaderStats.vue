@@ -1,23 +1,22 @@
 <template>
   <!-- Header -->
-  <div class="relative bg-teal-500 md:pt-32 pb-32 pt-16">
+  <div class="relative md:ml-64" style="padding-bottom: 1rem">  
     <div class="container px-4 md:px-15 mx-auto w-full">
-      <!--div>
-       
+      <div>       
         <div class="flex flex-wrap">
-          <div class="w-full lg:w-6/12 xl:w-4/12 px-4">
+          <div class="w-full lg:w-3/12 xl:w-3/12 px-4">
             <card-stats
-              statSubtitle="Carreras STEM/TIC"
+              statSubtitle="Carreras"
               statTitle="5"
               statArrow=""
               statPercent=""
               statPercentColor="text-emerald-500"
-              statDescripiron="Facultades: Ciencia y Tecnología  e Ingeniería y Arquitectura"
+              statDescripiron="STEM/TIC"
               statIconName="fa fa-university"
               statIconColor="bg-lightBlue-600"
             />
           </div>
-          <div class="w-full lg:w-6/12 xl:w-4/12 px-4">
+          <div class="w-full lg:w-3/12 xl:w-3/12 px-4">
             <card-stats
               statSubtitle="Población Estudiantil"
               statTitle="1,307"
@@ -29,31 +28,45 @@
               statIconColor="bg-emerald-500"
             />
           </div>
-          <div class="w-full lg:w-6/12 xl:w-4/12 px-4">
+          <div class="w-full lg:w-3/12 xl:w-3/12 px-4">
             <card-stats
-              statSubtitle="Nuevo Ingreso"
-              statTitle="286"
+              statSubtitle="Dimensiones"
+              statTitle="5"
               statArrow="down"
               statPercent="1.10"
               statPercentColor="text-orange-500"
-              statDescripiron="Estudiantes STEM/TIC"
+              statDescripiron="Categorías clave"
               statIconName="fas fa-users"
               statIconColor="bg-orange-500"
             />
           </div>
+
+
+          <div class="w-full lg:w-3/12 xl:w-3/12 px-4">
+            <card-stats
+              statSubtitle="Indicadores"
+              statTitle="286"
+              statArrow="down"
+              statPercent="1.10"
+              statPercentColor="text-orange-500"
+              statDescripiron="Estadísticas"
+              statIconName="fa fa-tasks"
+              statIconColor="bg-purple-500"
+            />
+          </div>
     
         </div>
-      </div-->
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-//import CardStats from "@/components/Cards/CardStats.vue";
+import CardStats from "@/components/Cards/CardStats.vue";
 
 export default {
   components: {
-    //CardStats,
+    CardStats
   },
 };
 </script>

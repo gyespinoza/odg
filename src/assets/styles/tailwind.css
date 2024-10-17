@@ -867,10 +867,6 @@ select {
 }
 
 @media (min-width: 768px) {
-  .\!container {
-    max-width: 768px !important;
-  }
-
   .container {
     max-width: 768px;
   }
@@ -12271,7 +12267,7 @@ h2 {
   font-weight: 400;
 }
 
-
+.home_text, 
   .home .fas, .homeLab, 
   .plans .far,
   .information .fas,
@@ -12280,14 +12276,6 @@ h2 {
   .location .far,
   .location .fas {
   padding: 15px 0;
-  background: var(--gradient);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.home_text {
-  padding: 0px;
   background: var(--gradient);
   background-clip: text;
   -webkit-background-clip: text;
@@ -12949,6 +12937,10 @@ h2 {
 .text-lightBlue-600 {
   --tw-text-opacity: 1;
   color: rgb(2 132 199 / var(--tw-text-opacity));
+}
+
+.text-color {
+  color: #07BEB8;
 }
 
 .text-orange-500 {
@@ -14250,7 +14242,7 @@ h2 {
 }
 
 .dimensions{
-  background-color: #F0F4F8;
+  background-color: #F8F9FA;
 }
 
 py-2 {
@@ -14673,7 +14665,9 @@ py-2 {
   .md\:pt-32 {
     padding-top: 8rem;
   }
-
+  .md\:pt-3 {
+    padding-top: 1rem;
+  }
   .md\:text-left {
     text-align: left;
   }
@@ -15511,5 +15505,18 @@ py-2 {
     .dark\:lg\:hover\:\[paint-order\:markers\]:hover {
       paint-order: markers;
     }
+  }
+}
+
+.containerP {
+  width: 100%; /* Por defecto, usa el ancho completo en pantallas pequeñas */
+  margin-left: 0;
+}
+
+/* Aplica el margen y ajusta el ancho en pantallas más grandes */
+@media (min-width: 768px) {
+  .containerP {
+    margin-left: 18rem;
+    width: 80%;
   }
 }

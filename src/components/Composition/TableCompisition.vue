@@ -2,6 +2,7 @@
   <div
     class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded"
     :class="[color === 'light' ? 'bg-white' : 'bg-emerald-900 text-white']"
+
   >
     <div class="rounded-t mb-0 px-4 py-3 border-0">
       <div class="flex flex-wrap items-center">
@@ -15,7 +16,7 @@
         </div>
       </div>
     </div>
-    <div class="block w-full overflow-x-auto">
+    <div class="block w-full overflow-x-auto" data-aos="zoom-in">
       <table class="items-center w-full bg-transparent border-collapse">
         <thead>
           <tr>
@@ -114,6 +115,9 @@
 </template>
 
 <script>
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 export default {
   name: 'MatriculadosPorCarrera',
   props: {
@@ -191,6 +195,9 @@ export default {
     getPorcentajeTotalGenero(genero) {
       return ((this[`total${genero.charAt(0).toUpperCase() + genero.slice(1)}`] / this.totalEstudiantes) * 100).toFixed(1);
     }
-  }
+  },
+  mounted() {
+        AOS.init({});
+    }
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-        <information />
+        <!--information /-->
         <about />
         <Dimensions />
         <Testimonials />
@@ -8,7 +8,7 @@
 </template>
 <script>
 import Dimensions from "@/components/Home/Dimensions.vue";
-import Information from "@/components/Home/Information.vue";
+//import Information from "@/components/Home/Information.vue";
 import About from '@/components/Home/About.vue';
 import Testimonials from "@/components/Home/Testimonials.vue";
 import AOS from "aos";
@@ -19,7 +19,7 @@ export default {
   name: "dashboard-page",
   components: {
     Dimensions,
-    Information,
+    //Information,
     About,
     Testimonials
   },

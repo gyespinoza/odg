@@ -61,7 +61,7 @@ export default {
 <style scoped>
 
 .activities {
-    background-color: #f8f9fa;
+    background-color: #fff;
 }
 
 .text {

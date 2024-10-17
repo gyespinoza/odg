@@ -11,7 +11,7 @@
           </h3>
         </div>
       </div>
-    <div class="gender-equality-chart">
+    <div class="gender-equality-chart"  data-aos="fade-out">
       <br /> 
         <div class="total-count">{{ totalStudents }}</div>
     
@@ -41,6 +41,9 @@
     </div>
   </template>
   <script>
+  import AOS from "aos";
+  import "aos/dist/aos.css";
+
   export default {
     name: 'GenderEqualityChart',
     data() {
@@ -57,6 +60,9 @@
       menPercentage() {
         return ((this.men / this.totalStudents) * 100).toFixed(1)
       }
+    },
+    mounted() {
+        AOS.init({});
     }
   }
   </script>

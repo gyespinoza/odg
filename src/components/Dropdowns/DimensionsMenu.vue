@@ -1,7 +1,6 @@
 <template>
   <div class="flex items-center">
-    <div>
-      
+    <div>      
       <a class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase"
         href="#"
         ref="btnDropdownRef"
@@ -10,7 +9,7 @@
         <i
           class="lg:text-blueGray-200 text-blueGray-400 fa fa-line-chart text-lg leading-lg mr-2"
         />
-        Estadísticas
+        Dimensiones
       </a>
       <div
         ref="popoverDropdownRef"

@@ -22,7 +22,7 @@
     </div>
 
     <!-- Gráfico de Dona -->
-    <div class="w-full px-4" style="height: 400px;">
+    <div class="w-full px-4">
       <canvas ref="doughnutChart"></canvas>
     </div>
 

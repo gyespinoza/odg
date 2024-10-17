@@ -38,6 +38,7 @@ import Access from "@/views/dimensions/Access.vue";
 import Resources from "@/views/dimensions/Resources.vue";
 import Inclusive from "@/views/dimensions/Inclusive.vue";
 import Conditioning from "@/views/dimensions/Conditioning.vue";
+import Dashboard from "@/views/dimensions/Dashboard.vue"
 
 // routes
 const routes = [
@@ -69,6 +70,10 @@ const routes = [
     redirect: "/composition",
     component: PagesLayout,
     children: [
+      {
+        path: "/dashboard",
+        component: Dashboard,
+      },
       {
         path: "/dimensions/composition",
         component: Composition,

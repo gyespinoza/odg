@@ -64,7 +64,7 @@
   
   <style scoped>
   .activities {
-    background-color: #fff;
+    background-color: #F8F9FA;
   }
   
   .text {
