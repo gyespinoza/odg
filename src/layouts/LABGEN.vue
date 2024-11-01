@@ -6,8 +6,7 @@
         <h1 class="headline text-white">
           Laboratorio de investigación de Violencia basada en género
         </h1>
-        <hr class="divider" />
-        <p class="subtitle text-white mt-3">
+        <p class="subtitle text-white3">
           En el marco de la subvención: Fortalecimiento de los servicios de atención a víctimas de VBG y desarrollo de la investigación científica sobre la VBG
         </p>
         <br /><br />
@@ -71,21 +70,17 @@ hr {
 }
 
 .subtitle {
-  font-size: 1.3rem;
+  font-size: 1rem;
   max-width: 900px;
   margin: 0 auto;
+  color: #fff;
 }
 
 .btn-primary {
-  background-color: #14B8A6;
-  border-color: #14B8A6;
+  background-color: var(--primary-light);
   padding: 0.75rem 1.5rem;
   text-transform: uppercase;
   border-radius: 10rem;
 }
 
-.btn-primary:hover {
-  background-color: #14B8A6;
-  border-color: #14B8A6;
-}
 </style>

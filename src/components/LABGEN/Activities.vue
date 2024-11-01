@@ -4,8 +4,7 @@
             <div class="container">
                 <div class="lg:pt-12 w-full md:w-12/12" data-aos="fade-right">
                     <p class="text-center">DIFUSION DEL LABORATORIO</p>
-                    <h2 class="text-center">Actividades</h2>
-                    <hr class="divider" />
+                    <h1 class="text-center">Actividades</h1>
                     <p class="para-light">
                         Para la difusión del Laboratorio y sus actividades, la UGB creará una comunidad dentro del repositorio institucional (rid.ugb.edu.sv) y se posicionará como un satélite del Instituto de Investigación sobre Violencia de Género (IVG) de la Universidad Francisco Gavidia.
                     </p>
@@ -61,7 +60,7 @@ export default {
 <style scoped>
 
 .activities {
-    background-color: #fff;
+    background-color: #F8F9FA;
 }
 
 .text {

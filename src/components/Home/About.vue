@@ -23,7 +23,7 @@
                 </div>
                 <div class="lg:pt-12 w-full md:w-5/12 text-center" data-aos="fade-down">
                     <div class="image-container">
-                        <img class="img-fluid" src="@/assets/img/angular.jpg" alt="about" />
+                        <img class="img-fluid" src="@/assets/img/ob.jpg" alt="about" />
                     </div>
                 </div>
             </div>

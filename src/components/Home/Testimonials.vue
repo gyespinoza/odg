@@ -4,7 +4,7 @@
       <div class="row">
         <div class="text-center pb-4">
           <p>OPINIONES</p>
-          <h2 class="py-2">Nuestros estudiantes opinan</h2>
+          <h1>Nuestros estudiantes opinan</h1>
           <p class="para-light text-white"></p>
         </div>
       </div>
@@ -160,7 +160,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  color: #14B8A6;
+  color: var(--primary);
 }
 
 .avatar {

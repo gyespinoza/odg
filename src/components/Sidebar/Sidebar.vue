@@ -83,12 +83,12 @@
                 class="text-xs uppercase py-3 font-bold block"
                 :class="[
                   isActive
-                    ? 'text-color hover:text-emerald-600'
-                    : 'text-blueGray-700 hover:text-blueGray-500',
+                    ? 'text-color'
+                    : 'text-blueGray-700',
                 ]"
               >
                 <i
-                  class="fas fa-tv mr-2 text-sm"
+                  class="fas fa-tv mr-2 text-sm bgSecond"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
                 Dashboard
@@ -110,7 +110,8 @@
           <li class="items-center">
             <router-link
               class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 block"
-              to="/dimensions/composition"              
+              to="/dimensions/composition"  
+                          
             >
               <i class="fas fa-city	text-blueGray-300 mr-2 text-sm"
               ></i>

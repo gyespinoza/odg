@@ -4,8 +4,7 @@
         <div class="container">
           <div class="lg:pt-12 w-full md:w-12/12" data-aos="fade-right">
             <p class="text-center">NUESTRO EQUIPO</p>
-            <h2 class="text-center">Equipo de Investigación</h2>
-            <hr class="divider" />
+            <h1 class="text-center">Equipo de Investigación</h1>            
             <p class="para-light"></p>
             <div class="flex">
              <div class="lg:pt-12 w-full md:w-4/12"  style="padding:20px" data-aos="fade-right" v-for="member in teamMembers" :key="member.id">
@@ -63,9 +62,6 @@
   </script>
   
   <style scoped>
-  .activities {
-    background-color: #F8F9FA;
-  }
   
   .text {
     font-size: 1vw;

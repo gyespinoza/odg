@@ -2,12 +2,12 @@
   <div>
     <sidebar />
     <div class="relative md:ml-64">
-      <div class="relative md:pt-3" style="background-color: #07BEB8; height: 75px">
+      <div class="relative md:pt-3 backgroundC">
         <div class="containerP px-4 md:px-15 mx-auto w-full">
           <admin-navbar />
           <div v-if="currentTitle" class="w-full mx-autp items-center flex justify-between md:flex-nowrap flex-wrap md:px-10 px-4">
             <a href="#" class="text-white text-sm uppercase font-semibold">
-              {{ currentTitle }}
+              
             </a>
             <br />
             <br />
@@ -61,5 +61,10 @@ export default {
   text-align: left;
   text-transform: uppercase;
   --tw-text-opacity: 1;
+}
+.backgroundC {
+  background-color: #fff; 
+  color: #000;
+  height: 75px;
 }
 </style>

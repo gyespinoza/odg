@@ -3,12 +3,12 @@
     <principal-nav-bar />
     <section class="home py-8 d-flex align-items-center" id="header">
       <div class="container" data-aos="zoom-in">
-        <h1 class="headline text-white" style="margin-top:15rem; font-size: 5vw;">
-          Observatorio de <span class="home_text">Género</span><br />          
+        <h1 class="headline text-white" style="margin-top:20rem; font-size: 3vw;">
+          Observatorio de Género<br />          
         </h1>
-        <h2 class="text-white" style="font-size: 2vw">Universidad
-          Gerardo Barrios</h2><br />
-          <a href="#about" class="bHome text-whire">
+        <h2 class="text-white" style="font-size: 1.5vw">Universidad
+          Gerardo Barrios</h2><br /><br />
+          <a href="#about" class="bHome text-white">
 						DESCUBRE MÁS <span class="fa-solid fa-angle-right"></span>
 					</a>
       </div>
@@ -56,9 +56,7 @@ export default {
 .bHome {
   float: left;
   padding: 1vw 3vw;
-  background: var(--primary);
+  background: var(--gradient);
   color: #fff;
-  font-size: 1vw;
-
 }
 </style>
