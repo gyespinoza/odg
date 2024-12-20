@@ -17,19 +17,13 @@
             {{ statTitle }}
           </span>
         </div>
-        <div class="relative w-auto pl-4 flex-initial">
+        <!--div class="relative w-auto pl-4 flex-initial">
           <div class="text-white p-3 inline-flex items-center justify-center">
-            <i :class="[statIconName]" class="h-16"></i>
+            <i :class="[statIconName]" class="h-20"></i>
           </div>
-        </div>
+        </div-->
       </div>
-      <p class="text-sm text-white mt-4">
-        <span v-if="statArrow && statPercent" class="mr-2">
-          <i :class="[
-            statArrow === 'up' ? `fas fa-arrow-up` : `fas fa-arrow-down`,
-          ]"></i>
-          {{ statPercent }}%
-        </span>
+      <p class="text-sm text-white mt-4">        
         <span class="whitespace-nowrap opacity-80">{{ statDescripiron }}</span>
       </p>
     </div>
@@ -120,4 +114,14 @@ svg circle:last-child {
 .rounded-xl:hover {
   transform: translateY(-2px);
 }
+
+
+.right-0 {
+  right: -100px;
+}
+
+.p-3 {
+  padding: 0.5rem !important;
+}
+
 </style>

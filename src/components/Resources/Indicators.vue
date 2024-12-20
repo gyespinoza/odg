@@ -15,7 +15,6 @@
       <div class="container">
         <div class="gauge-row">
           <div v-for="(item, index) in chartData" :key="index" class="gauge-item">
-            <div class="gauge-container">
               <vue-gauge
                 :refid="'gauge-' + index"
                 class="metricsGauge"
@@ -41,7 +40,6 @@
                 }"
               >
               </vue-gauge>
-            </div>
             <p class="mt-2 text-xs font-medium text-gray-600 text-center h-12 overflow-hidden">{{ item.label }}</p>
           </div>
         </div>
@@ -62,9 +60,9 @@
       const chartData = ref([
         { label: 'Recursos tecnológicos', value: 4.4 },
         { label: 'Laboratorios de prácticas', value: 4.5 },
-        { label: 'Cursos o programas de desarrollo profesional', value: 3.9 },
-        { label: 'Programas de intercambio académico o estudio en el extranjero', value: 3.4 },
-        { label: 'Programas de financiamiento y becas en la universidad', value: 3.6 },
+        { label: 'Cursos/programas de desarrollo profesional', value: 3.9 },
+        { label: 'Programas de intercambio académico', value: 3.4 },
+        { label: 'Programas de financiamiento y becas', value: 3.6 },
         { label: 'Servicios de asesoría para orientación y apoyo', value: 4.3 }
       ]);
   
@@ -76,10 +74,6 @@
   </script>
   
   <style scoped>
-  .container {
-    width: 100%;
-    overflow-x: auto;
-  }
   .gauge-row {
     display: flex;
     flex-wrap: nowrap;
@@ -87,26 +81,18 @@
     align-items: flex-start;
     gap: 10px;
     padding: 10px 0;
-  }
-  
+  }  
   .gauge-item {
     flex: 0 0 auto;
-    width: 180px;
+    width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
-  .gauge-container {
-    width: 180px;
-  }
-  
   .gauge-label {
-    margin-top: 10px;
     text-align: center;
     font-size: 12px;
     color: #666;
-    max-width: 180px;
     word-wrap: break-word;
   }
   </style>

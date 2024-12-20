@@ -83,12 +83,12 @@
                 class="text-xs uppercase py-3 font-bold block"
                 :class="[
                   isActive
-                    ? 'text-color'
+                    ? 'text-lightBlue-600'
                     : 'text-blueGray-700',
                 ]"
               >
                 <i
-                  class="fas fa-tv mr-2 text-sm bgSecond"
+                  class="fas fa-tv mr-2 text-sm"
                   :class="[isActive ? 'opacity-75' : 'text-blueGray-300']"
                 ></i>
                 Dashboard

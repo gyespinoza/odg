@@ -1,12 +1,10 @@
 <template>
-  <div
-    class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg"
-  >
+  <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg">
     <div class="rounded-t mb-0 px-6 py-4 border-0">
       <div class="flex flex-wrap items-center mb-4">
         <div class="relative w-full max-w-full flex-grow flex-1">
           <h6 class="uppercase text-blueGray-400 mb-2 text-xs">
-            Distribución de estudiantes por modalidad, carrera y género
+            Porcentaje de mujeres y hombres matriculados por carrera STEM/TIC
           </h6>
           <h2 class="text-blueGray-700 text-2xl">
             Facultad de Ciencia y Tecnología
@@ -22,289 +20,282 @@
 </template>
 
 <script>
-import { Chart } from "chart.js/auto";
+import { Chart } from 'chart.js/auto';
 
 export default {
-  name: "CombinedGenderChart",
+  name: 'PerCareerFCT',
   data() {
     return {
       chart: null,
+      colors: {
+        primary: '#30D1B9',    // Verde turquesa
+        secondary: '#82D9D2', //verde turquesa claro
+        women: {
+          dark: '#FF7F7F',     // Rosa más oscuro
+          main: '#FF9999',     // Rosa principal
+          light: '#FFB3B3'     // Rosa más claro
+        },
+        men: {
+          dark: '#3B82F6',     // Azul más oscuro
+          main: '#60A5FA',     // Azul principal
+          light: '#93C5FD'     // Azul más claro
+        }
+      },
+      chartData: {
+        labels: ['Presencial', 'Semipresencial', 'Virtual'],
+        datasets: []
+      }
     };
   },
   mounted() {
-    this.createChart();
+    this.createModalidadChart();
   },
   methods: {
-    calculateTotalPercentages(modalidad) {
-      const totals = {
+    calculatePercentages(modalidad) {
+      const data = {
         Presencial: {
-          mujeres: 24 + 0,
-          hombres: 100 + 3,
-          total: 127,
+          'Ingeniería en Sistemas': { mujeres: 24, hombres: 100 },
+          'Técnico en Sistemas': { mujeres: 0, hombres: 3 }
         },
         Semipresencial: {
-          mujeres: 70 + 11,
-          hombres: 187 + 23,
-          total: 291,
+          'Ingeniería en Sistemas': { mujeres: 70, hombres: 187 },
+          'Técnico en Sistemas': { mujeres: 11, hombres: 23 }
         },
         Virtual: {
-          mujeres: 36 + 21,
-          hombres: 180 + 28,
-          total: 265,
-        },
+          'Ingeniería en Sistemas': { mujeres: 36, hombres: 180 },
+          'Técnico en Sistemas': { mujeres: 21, hombres: 28 }
+        }
       };
 
-      const data = totals[modalidad];
+      const totales = Object.values(data[modalidad]).reduce(
+        (acc, curr) => {
+          acc.mujeres += curr.mujeres;
+          acc.hombres += curr.hombres;
+          acc.total += curr.mujeres + curr.hombres;
+          return acc;
+        },
+        { mujeres: 0, hombres: 0, total: 0 }
+      );
+
       return {
-        mujeres: ((data.mujeres / data.total) * 100).toFixed(1),
-        hombres: ((data.hombres / data.total) * 100).toFixed(1),
+        mujeres: ((totales.mujeres / totales.total) * 100).toFixed(1),
+        hombres: ((totales.hombres / totales.total) * 100).toFixed(1)
       };
     },
-    createChart() {
-      const ctx = this.$refs.combinedChart.getContext("2d");
+    createModalidadChart() {
+      const ctx = this.$refs.combinedChart.getContext('2d');
+      const presencialPct = this.calculatePercentages('Presencial');
+      const semiPct = this.calculatePercentages('Semipresencial');
+      const virtualPct = this.calculatePercentages('Virtual');
 
-      function createGradient(ctx, color1, color2, options = {}) {
-        const gradient = ctx.createLinearGradient(0, 0, 400, 0);
-        const opacity = options.opacity || "80"; // 80 = 50% transparente
-
-        // Borde inicial fuerte
-        gradient.addColorStop(0, color1);
-        // Transición a transparencia
-        gradient.addColorStop(0.1, color1 + opacity);
-        // Zona media transparente
-        gradient.addColorStop(0.5, color1 + opacity);
-        gradient.addColorStop(0.5, color2 + opacity);
-        // Transición a color sólido
-        gradient.addColorStop(0.9, color2 + opacity);
-        // Borde final fuerte
-        gradient.addColorStop(1, color2);
-
-        return gradient;
-      }
-
-      // Calcular porcentajes totales para cada modalidad
-      const presencialPct = this.calculateTotalPercentages("Presencial");
-      const semiPct = this.calculateTotalPercentages("Semipresencial");
-      const virtualPct = this.calculateTotalPercentages("Virtual");
-
-      const data = {
-        labels: ["Presencial", "Semipresencial", "Virtual"],
+      this.chartData = {
+        labels: ['Presencial', 'Semipresencial', 'Virtual'],
         datasets: [
-          // Ingeniería - Mujeres (Barra)
           {
-            type: "bar",
-            label: "Ing. Mujeres",
+            type: 'bar',
+            label: 'Ing. Sistemas - Mujeres',
             data: [24, 70, 36],
-            backgroundColor: createGradient(ctx, "#FFE1E1", "#FFC4C4", {
-              opacity: "80",
-            }), // Rosa suave
-            borderColor: "#FF9999",
+            backgroundColor: this.colors.women.dark,
+            borderColor: this.colors.women.dark,
             borderWidth: 1,
-            stack: "Stack 0",
-            order: 3,
+            stack: 'Stack 0',
+            order: 3
           },
-          // Ingeniería - Hombres (Barra)
           {
-            type: "bar",
-            label: "Ing. Hombres",
+            type: 'bar',
+            label: 'Ing. Sistemas - Hombres',
             data: [100, 187, 180],
-            backgroundColor: createGradient(ctx, "#E1E9FF", "#C4D5FF", {
-              opacity: "80",
-            }), // Azul suave
-            borderColor: "#99B8FF",
+            backgroundColor: this.colors.men.dark,
+            borderColor: this.colors.men.dark,
             borderWidth: 1,
-            stack: "Stack 0",
-            order: 3,
+            stack: 'Stack 0',
+            order: 3
           },
-          // Técnico - Mujeres (Barra)
           {
-            type: "bar",
-            label: "Téc. Mujeres",
+            type: 'bar',
+            label: 'Téc. Sistemas - Mujeres',
             data: [0, 11, 21],
-            backgroundColor: createGradient(ctx, "#FFE8F7", "#FFD6EF", {
-              opacity: "80",
-            }), // Rosa lavanda suave
-            borderColor: "#FFADD9",
+            backgroundColor: this.colors.women.light,
+            borderColor: this.colors.women.light,
             borderWidth: 1,
-            stack: "Stack 1",
-            order: 3,
+            stack: 'Stack 1',
+            order: 3
           },
-          // Técnico - Hombres (Barra)
           {
-            type: "bar",
-            label: "Téc. Hombres",
+            type: 'bar',
+            label: 'Téc. Sistemas - Hombres',
             data: [3, 23, 28],
-            backgroundColor: createGradient(ctx, "#E1FFF4", "#C4FFE9", {
-              opacity: "80",
-            }), // Verde menta suave
-            borderColor: "#99FFD1",
+            backgroundColor: this.colors.men.light,
+            borderColor: this.colors.men.light,
             borderWidth: 1,
-            stack: "Stack 1",
-            order: 3,
+            stack: 'Stack 1',
+            order: 3
           },
-          // Línea de porcentaje total de mujeres
           {
-            type: "line",
-            label: "% Total Mujeres",
+            type: 'line',
+            label: '% Total Mujeres',
             data: [presencialPct.mujeres, semiPct.mujeres, virtualPct.mujeres],
-            borderColor: "#FF7E7E", // Rosa medio
-            backgroundColor: "rgba(255, 126, 126, 0.1)",
+            borderColor: this.colors.primary,
+            backgroundColor: this.colors.primary,
             borderWidth: 2,
-            pointBackgroundColor: "#FF7E7E",
-            pointBorderColor: "#fff",
+            pointBackgroundColor: this.colors.primary,
+            pointBorderColor: '#fff',
             pointBorderWidth: 2,
             pointRadius: 6,
             pointHoverRadius: 8,
             fill: false,
             tension: 0.4,
             order: 1,
-            yAxisID: "percentage",
+            yAxisID: 'percentage'
           },
-          // Línea de porcentaje total de hombres
           {
-            type: "line",
-            label: "% Total Hombres",
+            type: 'line',
+            label: '% Total Hombres',
             data: [presencialPct.hombres, semiPct.hombres, virtualPct.hombres],
-            borderColor: "#7E9FFF", // Azul medio
-            backgroundColor: "rgba(126, 159, 255, 0.1)",
+            borderColor: this.colors.secondary,
+            backgroundColor: this.colors.secondary,
             borderWidth: 2,
-            pointBackgroundColor: "#7E9FFF",
-            pointBorderColor: "#fff",
+            pointBackgroundColor: this.colors.secondary,
+            pointBorderColor: '#fff',
             pointBorderWidth: 2,
             pointRadius: 6,
             pointHoverRadius: 8,
             fill: false,
             tension: 0.4,
             order: 2,
-            yAxisID: "percentage",
-          },
-        ],
+            yAxisID: 'percentage'
+          }
+        ]
       };
 
-      this.chart = new Chart(ctx, {
-        type: "bar",
-        data: data,
+      const chartConfig = {
+        type: 'bar',
+        data: this.chartData,
         options: {
           responsive: true,
           maintainAspectRatio: false,
           scales: {
             y: {
-              type: "linear",
-              position: "left",
+              type: 'linear',
+              position: 'left',
               stacked: true,
               grid: {
-                color: "#E2E8F0",
+                color: '#E2E8F0'
               },
               ticks: {
                 font: {
-                  size: 11,
-                },
+                  size: 11
+                }
               },
               title: {
                 display: true,
-                text: "Número de estudiantes",
+                text: 'Número de estudiantes',
                 font: {
                   size: 12,
-                  weight: "500",
-                },
-              },
+                  weight: '500'
+                }
+              }
             },
             percentage: {
-              type: "linear",
-              position: "right",
+              type: 'linear',
+              position: 'right',
               grid: {
-                display: false,
+                display: false
               },
               ticks: {
                 font: {
-                  size: 11,
+                  size: 11
                 },
-                callback: function (value) {
-                  return value + "%";
-                },
+                callback: function(value) {
+                  return value + '%';
+                }
               },
               title: {
                 display: true,
-                text: "Porcentaje por género",
+                text: 'Porcentaje por género',
                 font: {
                   size: 12,
-                  weight: "500",
-                },
+                  weight: '500'
+                }
               },
               min: 0,
-              max: 100,
+              max: 100
             },
             x: {
               grid: {
-                display: false,
+                display: false
               },
               ticks: {
                 font: {
                   size: 12,
-                  weight: "500",
-                },
-              },
-            },
+                  weight: '500'
+                }
+              }
+            }
           },
           plugins: {
             legend: {
-              position: "top",
-              align: "center",
+              position: 'top',
+              align: 'center',
               labels: {
                 padding: 20,
                 usePointStyle: true,
-                pointStyle: "circle",
+                pointStyle: 'circle',
                 font: {
                   size: 11,
-                  weight: "500",
-                },
-              },
+                  weight: '500'
+                }
+              }
             },
             tooltip: {
-              backgroundColor: "white",
-              titleColor: "#334155",
+              backgroundColor: 'white',
+              titleColor: '#334155',
               titleFont: {
                 size: 13,
-                weight: "600",
+                weight: '600'
               },
-              bodyColor: "#64748B",
+              bodyColor: '#64748B',
               bodyFont: {
-                size: 12,
+                size: 12
               },
-              borderColor: "#E2E8F0",
+              borderColor: '#E2E8F0',
               borderWidth: 1,
               padding: 12,
               callbacks: {
-                label: function (context) {
-                  if (context.dataset.type === "line") {
+                label: function(context) {
+                  if (context.dataset.type === 'line') {
                     return `${context.dataset.label}: ${context.parsed.y}%`;
                   }
                   const value = context.parsed.y;
-                  const total =
-                    context.dataset.stack === "Stack 0"
-                      ? 124 + 257 + 216 // Total Ingeniería
-                      : 3 + 34 + 49; // Total Técnico
+                  const carrera = context.dataset.label.split(' - ')[0];
+                  
+                  const total = context.chart.data.datasets
+                    .filter(ds => ds.type === 'bar' && ds.label.startsWith(carrera))
+                    .reduce((acc, ds) => acc + ds.data[context.dataIndex], 0);
+                    
                   const percentage = ((value / total) * 100).toFixed(1);
                   return `${context.dataset.label}: ${value} (${percentage}%)`;
-                },
-              },
-            },
-          },
-        },
-      });
-    },
+                }
+              }
+            }
+          }
+        }
+      };
+
+      this.chart = new Chart(ctx, chartConfig);
+    }
   },
   beforeDestroy() {
     if (this.chart) {
       this.chart.destroy();
     }
-  },
-};
+  }
+}
 </script>
 
 <style scoped>
 .chart-container {
-  height: 400px;
+  height: 500px;
   width: 100%;
   position: relative;
 }

@@ -23,14 +23,32 @@
 import { Chart } from 'chart.js/auto';
 
 export default {
-  name: 'EngineeringDistributionChart',
+  name: 'PerCareerFIA',
   data() {
     return {
-      chart: null
+      chart: null,
+      colors: {
+        primary: '#30D1B9',    // Verde turquesa
+        secondary: '#82D9D2', //verde turquesa claro
+        women: {
+          dark: '#FF8D96',     // Rosa más oscuro
+          main: '#FE94AB',     // Rosa principal
+          light: '#FE94AB'     // Rosa más claro
+        },
+        men: {
+          dark: '#3B82F6',     // Azul más oscuro
+          main: '#60A5FA',     // Azul principal
+          light: '#93C5FD'     // Azul más claro
+        }
+      },
+      chartData: {
+        labels: ['Presencial', 'Semipresencial'],
+        datasets: []
+      }
     };
   },
   mounted() {
-    this.createChart();
+    this.createModalidadChart();
   },
   methods: {
     calculatePercentages(modalidad) {
@@ -62,108 +80,82 @@ export default {
         hombres: ((totales.hombres / totales.total) * 100).toFixed(1)
       };
     },
-    createChart() {
+    createModalidadChart() {
       const ctx = this.$refs.combinedChart.getContext('2d');
-      function createGradient(ctx, color1, color2, options = {}) {
-        const gradient = ctx.createLinearGradient(0, 0, 400, 0);
-        const opacity = options.opacity || '80'; // 80 = 50% transparente
-
-        // Borde inicial fuerte
-        gradient.addColorStop(0, color1);
-        // Transición a transparencia
-        gradient.addColorStop(0.1, color1 + opacity);
-        // Zona media transparente
-        gradient.addColorStop(0.5, color1 + opacity);
-        gradient.addColorStop(0.5, color2 + opacity);
-        // Transición a color sólido
-        gradient.addColorStop(0.9, color2 + opacity);
-        // Borde final fuerte
-        gradient.addColorStop(1, color2);
-
-        return gradient;
-      }
-
       const presencialPct = this.calculatePercentages('Presencial');
       const semiPct = this.calculatePercentages('Semipresencial');
 
-      const data = {
+      this.chartData = {
         labels: ['Presencial', 'Semipresencial'],
         datasets: [
-          // Ing. Civil - Mujeres
           {
             type: 'bar',
             label: 'Ing. Civil - Mujeres',
             data: [59, 40],
-            backgroundColor: createGradient(ctx, '#FFE1E1', '#FFC4C4', { opacity: '80' }), // Rosa suave
-            borderColor: '#FF9999',
+            backgroundColor: this.colors.women.dark,
+            borderColor: this.colors.women.dark,
             borderWidth: 1,
             stack: 'Stack 0',
             order: 3
           },
-          // Ing. Civil - Hombres
           {
             type: 'bar',
             label: 'Ing. Civil - Hombres',
             data: [176, 147],
-            backgroundColor: createGradient(ctx, '#E1E9FF', '#C4D5FF', { opacity: '80' }), // Azul suave
-            borderColor: '#99B8FF',
+            backgroundColor: this.colors.men.dark,
+            borderColor: this.colors.men.dark,
             borderWidth: 1,
             stack: 'Stack 0',
             order: 3
           },
-          // Ing. Industrial - Mujeres
           {
             type: 'bar',
             label: 'Ing. Industrial - Mujeres',
             data: [35, 24],
-            backgroundColor: createGradient(ctx, '#E1FFF4', '#C4FFE9', { opacity: '80' }), // Verde menta suave
-            borderColor: '#99FFD1',
+            backgroundColor: this.colors.women.main,
+            borderColor: this.colors.women.main,
             borderWidth: 1,
             stack: 'Stack 1',
             order: 3
           },
-          // Ing. Industrial - Hombres
           {
             type: 'bar',
             label: 'Ing. Industrial - Hombres',
             data: [61, 42],
-            backgroundColor: createGradient(ctx, '#FFE8F7', '#FFD6EF', { opacity: '80' }), // Rosa lavanda suave
-            borderColor: '#FFADD9',
+            backgroundColor: this.colors.men.main,
+            borderColor: this.colors.men.main,
             borderWidth: 1,
             stack: 'Stack 1',
             order: 3
           },
-          // Técnico - Mujeres
           {
             type: 'bar',
             label: 'Téc. Civil - Mujeres',
             data: [4, 7],
-            backgroundColor: createGradient(ctx, '#FFF3E1', '#FFE4C4', { opacity: '80' }), // Melocotón suave
-            borderColor: '#FFCC99',
+            backgroundColor: this.colors.women.light,
+            borderColor: this.colors.women.light,
             borderWidth: 1,
             stack: 'Stack 2',
             order: 3
           },
-          // Técnico - Hombres
           {
             type: 'bar',
             label: 'Téc. Civil - Hombres',
             data: [8, 21],
-            backgroundColor: createGradient(ctx, '#E1F6FF', '#C4EEFF', { opacity: '80' }), // Azul cielo suave
-            borderColor: '#99DDFF',
+            backgroundColor: this.colors.men.light,
+            borderColor: this.colors.men.light,
             borderWidth: 1,
             stack: 'Stack 2',
             order: 3
           },
-          // Línea de porcentaje total de mujeres
           {
             type: 'line',
             label: '% Total Mujeres',
             data: [presencialPct.mujeres, semiPct.mujeres],
-            borderColor: '#FF7E7E', // Rosa medio
-            backgroundColor: 'rgba(255, 126, 126, 0.1)',
+            borderColor: this.colors.primary,
+            backgroundColor: this.colors.primary,
             borderWidth: 2,
-            pointBackgroundColor: '#FF7E7E',
+            pointBackgroundColor: this.colors.primary,
             pointBorderColor: '#fff',
             pointBorderWidth: 2,
             pointRadius: 6,
@@ -173,15 +165,14 @@ export default {
             order: 1,
             yAxisID: 'percentage'
           },
-          // Línea de porcentaje total de hombres
           {
             type: 'line',
             label: '% Total Hombres',
             data: [presencialPct.hombres, semiPct.hombres],
-            borderColor: '#7E9FFF', // Azul medio
-            backgroundColor: 'rgba(126, 159, 255, 0.1)',
+            borderColor: this.colors.secondary,
+            backgroundColor: this.colors.secondary,
             borderWidth: 2,
-            pointBackgroundColor: '#7E9FFF',
+            pointBackgroundColor: this.colors.secondary,
             pointBorderColor: '#fff',
             pointBorderWidth: 2,
             pointRadius: 6,
@@ -194,9 +185,9 @@ export default {
         ]
       };
 
-      this.chart = new Chart(ctx, {
+      const chartConfig = {
         type: 'bar',
-        data: data,
+        data: this.chartData,
         options: {
           responsive: true,
           maintainAspectRatio: false,
@@ -232,7 +223,7 @@ export default {
                 font: {
                   size: 11
                 },
-                callback: function (value) {
+                callback: function(value) {
                   return value + '%';
                 }
               },
@@ -288,15 +279,17 @@ export default {
               borderWidth: 1,
               padding: 12,
               callbacks: {
-                label: function (context) {
+                label: function(context) {
                   if (context.dataset.type === 'line') {
                     return `${context.dataset.label}: ${context.parsed.y}%`;
                   }
                   const value = context.parsed.y;
                   const carrera = context.dataset.label.split(' - ')[0];
-                  const total = data.datasets
+                  
+                  const total = context.chart.data.datasets
                     .filter(ds => ds.type === 'bar' && ds.label.startsWith(carrera))
                     .reduce((acc, ds) => acc + ds.data[context.dataIndex], 0);
+                    
                   const percentage = ((value / total) * 100).toFixed(1);
                   return `${context.dataset.label}: ${value} (${percentage}%)`;
                 }
@@ -304,7 +297,9 @@ export default {
             }
           }
         }
-      });
+      };
+
+      this.chart = new Chart(ctx, chartConfig);
     }
   },
   beforeDestroy() {
@@ -317,7 +312,7 @@ export default {
 
 <style scoped>
 .chart-container {
-  height: 400px;
+  height: 500px;
   width: 100%;
   position: relative;
 }

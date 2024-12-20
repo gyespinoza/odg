@@ -4,7 +4,7 @@
       <div class="row">
         <div class="text-center pb-4">
           <p>OPINIONES</p>
-          <h1>Nuestros estudiantes opinan</h1>
+          <h1>Testimonios y experiencias</h1>
           <p class="para-light text-white"></p>
         </div>
       </div>
@@ -16,12 +16,12 @@
           }" :breakpoints="swiperBreakpoints" @swiper="onSwiper" @slideChange="onSlideChange">
             <swiper-slide v-for="testimonial in testimonials" :key="testimonial.id">
               <div class="testimonial-card">
-                <p>{{ testimonial.content }}</p>
+                <p style="font-style: italic;">{{ testimonial.content }}</p>
                 <div class="testimonial-author">
-                  <img class="avatar" :src="testimonial.avatar" :alt="testimonial.name" />
+                  <i class="fa fa-user-circle" style="color: #BB71FF; font-size:36px"></i>&nbsp;&nbsp;&nbsp;
                   <div class="author-info">
-                    <h6>{{ testimonial.name }}</h6>
-                    <p>{{ testimonial.position }}</p>
+                    <h6>{{ testimonial.position }}</h6>
+                    <p>{{ testimonial.name }}</p>
                   </div>
                 </div>
               </div>
@@ -61,35 +61,38 @@ export default {
         {
           id: 1,
           content:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam commodi officia laborum qui iste quidem!",
+            "Todo ha sido muy bien, los docentes explican muy bien y muestran verdadero interés en nuestro aprendizaje.",
             name: "Estudiante",
-            position: "Ciencia y Tecnología",
-            avatar: "@/assets/img/student.jpg",
+            position: "FIA",
         },
         {
           id: 2,
           content:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam commodi officia laborum qui iste quidem!",
+            "La experiencia ha sido más que todo positiva, con aceptación desde el primer día tanto en el ambiente general como con los profesores.",
             name: "Estudiante",
-            position: "Ingeniería y Arquitectura",
-            avatar: "/api/placeholder/100/100",
+            position: "FCT",
         },
         {
           id: 3,
           content:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam commodi officia laborum qui iste quidem!",
-          name: "Estudiante",
-          position: "Ciencia y Tecnología",
-          avatar: "/api/placeholder/100/100",
+            "Los docentes han sido muy bien portados con nuestro grupo, han explicado muy bien todo.",
+            name: "Estudiante",
+            position: "FIA",
         },
         {
           id: 4,
           content:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam commodi officia laborum qui iste quidem!",
+            "Mi experiencia sobre la carrera ha sido más que todo positiva, ya que desde el primer día he sentido como esa aceptación que ha tenido mi persona.",
             name: "Estudiante",
-            position: "Ingeniería y Arquitectura",
-          avatar: "/api/placeholder/100/100",
+            position: "FCT",
         },
+        {
+          id: 5,
+          content:
+            "Creo que todos dentro de la facultad, hablando por ingeniería y arquitectura, tenemos la confianza de los ingenieros.",
+            name: "Estudiante",
+            position: "FIA",
+        }
       ],
     };
   },

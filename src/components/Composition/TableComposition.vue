@@ -1,21 +1,17 @@
 <template>
-  <div
-    class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded"
-    :class="[color === 'light' ? 'bg-white' : 'bg-emerald-900 text-white']"
-
-  >
-    <div class="rounded-t mb-0 px-4 py-3 border-0">
-      <div class="flex flex-wrap items-center">
-        <div class="relative w-full px-4 max-w-full flex-grow flex-1">
-          <h3
-            class="text-lg"
-            :class="[color === 'light' ? 'text-blueGray-700' : 'text-white']"
-          >
-            Matriculados por carrera y género
-          </h3>
+  <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg">
+    <div class="rounded-t mb-0 px-6 py-4 border-0">
+      <div class="flex flex-wrap items-center mb-4">
+        <div class="relative w-full max-w-full flex-grow flex-1">
+          <h6 class="uppercase text-blueGray-400 mb-2 text-xs">
+            Distribución de estudiantes por carrera y género
+          </h6>
+          <h2 class="text-blueGray-700 text-2xl">
+            Carreras STEM/TIC
+          </h2>
         </div>
       </div>
-    </div>
+
     <div class="block w-full overflow-x-auto" data-aos="zoom-in">
       <table class="items-center w-full bg-transparent border-collapse">
         <thead>
@@ -87,7 +83,7 @@
               <div class="flex items-center justify-center">                
                 
                  <!-- {{ getTotalGenero(carrera, 'femenino') }}-->
-                  <svg width="30" height="30" viewBox="0 0 24 24" style="color: #0070C0">
+                  <svg width="30" height="30" viewBox="0 0 24 24" style="color: #41D3BF">
                     <path fill="currentColor" d="M12 2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m-1.5 20v-6h-3l2.5-9h5l.5 1.5h-4l-1.8 6.5h2.8v7h-2z" />
                   </svg>
                   {{ getPorcentajeGenero(carrera, 'femenino') }}%
@@ -100,7 +96,7 @@
               <div class="flex items-center justify-center">
                 <!--{{ getTotalGenero(carrera, 'masculino') }}-->
 
-                <svg width="30" height="30" viewBox="0 0 24 24" style="color: #40AFFF">
+                <svg width="30" height="30" viewBox="0 0 24 24" style="color: #82D9D2">
                   <path fill="currentColor" d="M12 2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m-1.5 20v-6h-3l1.5-6h1.5l.5-2h-3l-1.5 6h2v8h3z" />
                 </svg>
 
@@ -112,6 +108,7 @@
       </table>
     </div>
   </div>
+</div>
 </template>
 
 <script>

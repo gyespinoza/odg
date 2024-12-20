@@ -3,8 +3,11 @@
     <div class="rounded-t mb-0 px-4 py-3 border-0">
       <div class="flex flex-wrap items-center">
         <div class="relative w-full px-4 max-w-full flex-grow flex-1">
+          <h6 class="uppercase text-blueGray-400 mb-1 text-xs">
+            Facultad de Ingeniería y Arquitectura y Facultad de Ciencia y Tecnología
+          </h6>
           <h2 class="text-blueGray-700 text-xl">
-            Distribución de Graduados por Género
+            Distribución de graduados por género
           </h2>
         </div>
       </div>
@@ -61,6 +64,10 @@ export default {
     return {
       selectedAno: '2023',
       chartInstance: null,
+      colors: {
+        women: '#41D3BF',    // Rosa para mujeres
+        men: '#82D9D2'       // Azul para hombres
+      },
       enrollmentData: [
         {
           carrera: 'Ingeniería Civil',
@@ -86,8 +93,8 @@ export default {
         labels: ['Masculino', 'Femenino'],
         datasets: [{
           data: [totalMasculino, totalFemenino],
-          backgroundColor: ['#40AFFF', '#0070C0'],
-          borderColor: ['#40AFFF', '#0070C0'],
+          backgroundColor: [this.colors.men, this.colors.women],
+          borderColor: [this.colors.men, this.colors.women],
           borderWidth: 1
         }]
       };
@@ -109,11 +116,31 @@ export default {
           plugins: {
             legend: {
               position: 'top',
-            },
-            title: {
-              display: true,
+              align: 'center',
+              labels: {
+                padding: 20,
+                usePointStyle: true,
+                pointStyle: 'circle',
+                font: {
+                  size: 11,
+                  weight: '500'
+                }
+              }
             },
             tooltip: {
+              backgroundColor: 'white',
+              titleColor: '#334155',
+              titleFont: {
+                size: 13,
+                weight: '600'
+              },
+              bodyColor: '#64748B',
+              bodyFont: {
+                size: 12
+              },
+              borderColor: '#E2E8F0',
+              borderWidth: 1,
+              padding: 12,
               callbacks: {
                 label: (context) => {
                   const label = context.label || '';
@@ -138,7 +165,9 @@ export default {
     }
   },
   watch: {
-    selectedAno() { this.renderChart(); }
+    selectedAno() { 
+      this.renderChart(); 
+    }
   },
   mounted() {
     this.renderChart();
