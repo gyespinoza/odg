@@ -75,37 +75,36 @@
   </script>
   
   <style scoped>
-  .container {
-    width: 100%;
-    overflow-x: auto;
-  }
-  .gauge-row {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center ;
-    gap: 30px;
-    padding: 10px 0;
-  }
-  
-  .gauge-item {
-    flex: 0 0 auto;
-    width: 180px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .gauge-container {
-    width: 180px;
-  }
-  
-  .gauge-label {
-    margin-top: 10px;
-    text-align: center;
-    font-size: 12px;
-    color: #666;
-    max-width: 180px;
-    word-wrap: break-word;
-  }
-  </style>
+.container {
+  width: 100%;
+  overflow-x: auto;
+}
+.gauge-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 10px 0;
+}
+
+.gauge-item {
+  flex: 0 0 auto;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gauge-container {
+  width: 180px;
+}
+
+p {
+  height: auto !important;
+  min-height: 48px;
+  overflow: visible !important;
+  line-height: 1.2;
+  padding: 0 5px;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-    <section class="about d-flex align-items-center py-5" id="about" style="padding-top: 10%">
+    <section class="about d-flex align-items-center py-5" id="about" style="padding-top: 5%; height: 850px">
         <div class="container">
             <div class="flex align-items-center py-2">
                 <div class="lg:pt-12 w-full md:w-7/12" data-aos="fade-right">

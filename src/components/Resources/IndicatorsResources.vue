@@ -23,7 +23,7 @@ import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
 export default {
-  name: 'HorizontalStackedBarChart',
+  name: 'IndicatorsResources',
   data() {
     return {
       chart: null
@@ -78,23 +78,57 @@ export default {
           indexAxis: 'y',
           responsive: true,
           maintainAspectRatio: false,
+          barThickness: 25,  // Aumentado el grosor de las barras
+          maxBarThickness: 30,
+          categoryPercentage: 0.8,  // Ajusta el espacio entre grupos de barras
+          barPercentage: 0.9,      // Ajusta el espacio entre barras dentro del grupo
+          layout: {
+            padding: {
+              left: 20,
+              right: 20,
+              top: 20,
+              bottom: 20
+            }
+          },
           scales: {
             x: {
               stacked: true,
+              grid: {
+                display: false  // Oculta las líneas de la cuadrícula
+              },
               ticks: {
                 callback: function(value) {
                   return value + '%';
+                },
+                font: {
+                  size: 11  // Tamaño de fuente ajustado
                 }
               }
             },
             y: {
-              stacked: true
+              stacked: true,
+              grid: {
+                display: false
+              },
+              ticks: {
+                font: {
+                  size: 12  // Tamaño de fuente para las etiquetas
+                },
+                padding: 10  // Espacio entre etiquetas y barras
+              }
             }
           },
           plugins: {
             legend: {
               display: true,
-              position: 'bottom'
+              position: 'bottom',
+              labels: {
+                padding: 20,
+                boxWidth: 15,
+                font: {
+                  size: 11
+                }
+              }
             },
             tooltip: {
               callbacks: {
@@ -117,16 +151,16 @@ export default {
           afterDatasetsDraw(chart) {
             const { ctx, data } = chart;
             ctx.save();
-            ctx.font = '12px Arial';
+            ctx.font = '11px Arial';  
             ctx.fillStyle = 'black';
-            ctx.textAlign = 'right';
+            ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
 
             data.datasets.forEach((dataset, i) => {
               chart.getDatasetMeta(i).data.forEach((datapoint, index) => {
                 const { x, y } = datapoint.tooltipPosition();
                 const value = dataset.data[index];
-                if (value > 0) {  // Solo muestra el porcentaje si es mayor al 0%
+                if (value > 5) {  // Solo muestra porcentajes mayores a 5%
                   ctx.fillText(`${value}%`, x, y);
                 }
               });
@@ -144,7 +178,9 @@ export default {
 <style scoped>
 .chart-container {
   width: 100%;
-  height: 400px;
+  height: 450px;  /* Altura aumentada */
   position: relative;
+  margin: 10px 0;
 }
+
 </style>

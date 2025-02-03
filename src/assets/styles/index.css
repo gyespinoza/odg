@@ -4462,17 +4462,6 @@ select {
   forced-color-adjust: none;
 }
 
-.\[_\:A-Za-z\] {
-  _: A-Za-z;
-}
-
-.\[a-zA-Z-\:\#\] {
-  a-z-a--z-: #;
-}
-
-.\!\[a-zA-Z\:_\] {
-  a-z-a--z:  !important;
-}
 
 .\[contenthash\:8\] {
   contenthash: 8;
@@ -8997,18 +8986,6 @@ h2 {
 
 .forced-color-adjust-none {
   forced-color-adjust: none;
-}
-
-.\[_\:A-Za-z\] {
-  : A-Za-z;
-}
-
-.\[a-zA-Z-\:\#\] {
-  a-z-a--z-: #;
-}
-
-.\!\[a-zA-Z\:_\] {
-  a-z-a--z:  !important;
 }
 
 .\[contenthash\:8\] {

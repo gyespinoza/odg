@@ -88,7 +88,7 @@
   
   .gauge-item {
     flex: 0 0 auto;
-    width: 180px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;

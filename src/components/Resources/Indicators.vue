@@ -74,6 +74,7 @@
   </script>
   
   <style scoped>
+  
   .gauge-row {
     display: flex;
     flex-wrap: nowrap;

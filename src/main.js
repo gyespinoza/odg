@@ -18,7 +18,6 @@ AOS.init({
   easing: 'ease-in-out',
   once: true,
   offset: 100,
-  // ... otras opciones
 })
 
 // layouts

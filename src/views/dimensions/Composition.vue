@@ -36,7 +36,9 @@
               </div>
         
               <div class="chart-container">
-                <canvas ref="pieChart"></canvas>
+                <div class="chartContainer">
+                  <canvas ref="pieChart"></canvas>
+                </div>
               </div>
               <div class="mt-4 text-center text-sm text-gray-600">
                 Total de estudiantes: {{ facultyData[selectedFaculty].total }}
@@ -138,7 +140,7 @@ export default {
                 usePointStyle: true,
                 pointStyle: 'circle',
                 font: {
-                  size: 12,
+                  size: 11,
                   weight: '500'
                 }
               }
@@ -203,6 +205,14 @@ select {
   height: 500px;
   width: 100%;
   position: relative;
+}
+.chartContainer {
+  height: 375px;
+  margin: 0;
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .fade-enter-active, .fade-leave-active {

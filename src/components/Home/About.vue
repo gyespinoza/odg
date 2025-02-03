@@ -5,8 +5,8 @@
                 <div class="lg:pt-12 w-full md:w-7/12" data-aos="fade-right">
                     <p>SOBRE EL OBSERVATORIO</p>
                     <h1>
-                        Innovación <br />
-                        para la inclusión
+                        Observatorio <br />
+                        de género
                     </h1>
                     <p class="py-2 para-light">
                         El Observatorio de Género de la Universidad Gerardo Barrios es una iniciativa  
