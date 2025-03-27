@@ -11,7 +11,7 @@ cd dist
 
 git init
 git add -A
-git commit -m 'deploy'
+git commit -m 'deploy in githubpages'
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
 git push -f git@github.com:gyespinoza/odg.git master:gh-pages
