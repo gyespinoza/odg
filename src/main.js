@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import { createWebHistory, createRouter } from "vue-router";
+import { createWebHashHistory, createRouter } from "vue-router";
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -98,12 +98,9 @@ const routes = [
   { path: "/:pathMatch(.*)*", redirect: "/" },
 ];
 
-/*const router = createRouter({
- history: createWebHistory(),
-  routes,
-});*/
+
 const router = createRouter({
-  history: createWebHistory(process.env.NODE_ENV === "production" ? "/odg/" : "/"),
+  history: createWebHashHistory(),
   routes,
 });
 createApp(App).use(router).mount("#app");
