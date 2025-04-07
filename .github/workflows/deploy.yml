@@ -13,15 +13,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 14
       
       - name: Install dependencies
         run: npm ci
       
       - name: Build
         run: npm run build
-        env:
-          NODE_OPTIONS: --openssl-legacy-provider
       
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
