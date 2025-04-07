@@ -98,8 +98,11 @@ const routes = [
   { path: "/:pathMatch(.*)*", redirect: "/" },
 ];
 
+/*const router = createRouter({
+ history: createWebHistory(),
+  routes,
+});*/
 const router = createRouter({
- //history: createWebHistory(),
   history: createWebHistory(process.env.NODE_ENV === "production" ? "/odg/" : "/"),
   routes,
 });
