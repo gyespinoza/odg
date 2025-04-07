@@ -34,7 +34,7 @@
             <div class="w-6/12">
               <router-link
                 class="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-                to="/"
+                to="/#"
               >
                 ODG | UGB
               </router-link>
@@ -110,7 +110,7 @@
           <li class="items-center">
             <router-link
               class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 block"
-              to="/dimensions/composition"  
+              to="/dashboard/composition"  
                           
             >
               <i class="fas fa-city	text-blueGray-300 mr-2 text-sm"
@@ -122,7 +122,7 @@
           <li class="items-center">
             <router-link
               class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3  block"
-              to="/dimensions/access"
+              to="/dashboard/access"
             >
               <i class="fa fa-graduation-cap text-blueGray-300 mr-2 text-sm"></i>
               Acceso, permanencia y logros
@@ -145,7 +145,7 @@
            <li class="items-center">
              <router-link
                class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 block"
-               to="/dimensions/resources"
+               to="/dashboard/resources"
              >
                <i class="fas fa-users text-blueGray-300 mr-2 text-sm"></i>
                Recursos y apoyo
@@ -155,7 +155,7 @@
            <li class="items-center">
              <router-link
                class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3  block"
-               to="/dimensions/Inclusive"
+               to="/dashboard/Inclusive"
              >
                <i class="fas fa-circle-nodes text-blueGray-300 mr-2 text-sm"></i>
                Ambiente inclusivo
@@ -165,7 +165,7 @@
            <li class="items-center">
             <router-link
               class="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3  block"
-              to="/dimensions/Conditioning"
+              to="/dashboard/Conditioning"
             >
               <i class="fas fa-scale-unbalanced text-blueGray-300 mr-2 text-sm"></i>
               Condicionamiento y discriminación social

@@ -38,15 +38,13 @@
 
         <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
           <li class="flex items-center">
-            <a
+            <router-link
+              to="/"
               class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase"
-              href="/#"
             >
-              <i
-                class="lg:text-blueGray-200 text-blueGray-400 fa fa-home text-lg leading-lg mr-2"
-              />
+              <i class="lg:text-blueGray-200 text-blueGray-400 fa fa-home text-lg leading-lg mr-2"></i>
               Inicio
-            </a>
+            </router-link>
           </li>
           <li class="flex items-center">
             <a
