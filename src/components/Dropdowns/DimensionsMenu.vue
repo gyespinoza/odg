@@ -68,15 +68,15 @@ export default {
     const popoverDropdownRef = ref(null);
 
     const analysisLinks = [
-      { to: "/dimensions/composition", text: "Composición de la comunidad académica" },
-      { to: "/dimensions/access", text: "Acceso, permanencia y logros" },
+      { to: "/dashboard/composition", text: "Composición de la comunidad académica" },
+      { to: "/dashboard/access", text: "Acceso, permanencia y logros" },
       // Agrega más enlaces si es necesario
     ];
 
     const wellbeingLinks = [
-      { to: "/dimensions/resources", text: "Recursos y apoyo" },
-      { to: "/dimensions/Inclusive", text: "Ambiente inclusivo" },
-      { to: "/dimensions/Conditioning", text: "Condicionamiento y discriminación social" },
+      { to: "/dashboard/resources", text: "Recursos y apoyo" },
+      { to: "/dashboard/Inclusive", text: "Ambiente inclusivo" },
+      { to: "/dashboard/Conditioning", text: "Condicionamiento y discriminación social" },
     ];
 
     const toggleDropdown = () => {
