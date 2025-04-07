@@ -27,11 +27,11 @@ import LABGEN from "@/layouts/LABGEN.vue";
 import Index from "@/views/pages/Index.vue";
 import LabGen from "@/views/pages/LabGen.vue";
 import Composition from "@/views/dimensionsData/Composition";
-import Access from "@/views/dimensionsData/Access.vue";
-import Resources from "@/views/dimensionsData/Resources.vue";
-import Inclusive from "@/views/dimensionsData/Inclusive.vue";
-import Conditioning from "@/views/dimensionsData/Conditioning.vue";
-import Dashboard from "@/views/dimensionsData/Dashboard.vue"
+import Access from "@/views/dashboard/Access.vue";
+import Resources from "@/views/dashboard/Resources.vue";
+import Inclusive from "@/views/dashboard/Inclusive.vue";
+import Conditioning from "@/views/dashboard/Conditioning.vue";
+import Dashboard from "@/views/dashboard/Dashboard.vue"
 
 // routes
 const routes = [
@@ -61,7 +61,7 @@ const routes = [
 
   // Ruta para dimensiones
   {
-    path: "/dimensionsData",
+    path: "/dashboard",
     component: PagesLayout,
     children: [
       {
