@@ -63,6 +63,17 @@ const routes = [
         path: "/dashboard",
         component: Dashboard,
       },
+    ]
+  },
+  {
+    path: "/dimensions",
+    redirect: "/composition",
+    component: PagesLayout,
+    children: [
+      /*{
+        path: "/dashboard",
+        component: Dashboard,
+      },*/
       {
         path: "/dimensions/composition",
         component: Composition,
