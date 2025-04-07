@@ -1,5 +1,5 @@
 <template>
-  <section class="dimensions d-flex align-items-center py-5" id="dimensions" style="padding-top: 5%">
+  <section class="dimensions d-flex align-items-center py-5" id="dimension" style="padding-top: 5%">
     <div class="container">
       <div class="text-center pb-4">
         <p>ELEMENTOS CLAVE</p>
