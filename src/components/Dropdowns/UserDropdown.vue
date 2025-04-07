@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center">
     <a
-      href="/"
+      href="/#"
       class="text-blueGray-500 mr-4"
     >
       <span class="w-12 h-12 text-sm text-white  inline-flex items-center justify-center">
