@@ -1,5 +1,5 @@
 import { createApp } from "vue";
-import { createWebHashHistory, createRouter } from "vue-router";
+import { createWebHashHistory, createRouter } from "vue-router"; //update library for web history
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
