@@ -16,7 +16,7 @@
       >
         <router-link
           class="text-white text-xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
-          to="/"
+          to="/#"
         >
           ODG | UGB
         </router-link>
@@ -40,7 +40,7 @@
           <li class="flex items-center">
             <a
               class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase"
-              href="/"
+              href="/#"
             >
               <i
                 class="lg:text-blueGray-200 text-blueGray-400 fa fa-home text-lg leading-lg mr-2"
@@ -73,7 +73,7 @@
           <li class="flex items-center">            
             <a
             class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase"
-            href="dashboard"
+            href="#/dashboard"
           >
             <i
               class="lg:text-blueGray-200 text-blueGray-400 fa fa-line-chart text-lg leading-lg mr-2"
@@ -84,7 +84,7 @@
           <li class="flex items-center">
             <a
               class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase"
-              href="/labgen"
+              href="#/labgen"
             >
               <i
                 class="lg:text-blueGray-200 text-blueGray-400 fa fa-flask text-lg leading-lg mr-2"
@@ -95,7 +95,7 @@
           <li class="flex items-center">
             <a
               class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase"
-              href="/"
+              href="#/"
             >
               <i
                 class="lg:text-blueGray-200 text-blueGray-400 fa fa-commenting text-lg leading-lg mr-2"
