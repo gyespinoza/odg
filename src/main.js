@@ -26,7 +26,7 @@ import LABGEN from "@/layouts/LABGEN.vue";
 // views for layouts
 import Index from "@/views/pages/Index.vue";
 import LabGen from "@/views/pages/LabGen.vue";
-import Composition from "@/views/dimensionsData/Composition";
+import Composition from "@/views/dashboard/Composition";
 import Access from "@/views/dashboard/Access.vue";
 import Resources from "@/views/dashboard/Resources.vue";
 import Inclusive from "@/views/dashboard/Inclusive.vue";
