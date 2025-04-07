@@ -4,12 +4,10 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 
 // styles
-
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "@/assets/styles/tailwind.css";
 
 // mouting point for the whole app
-
 import App from "@/App.vue";
 
 AOS.init({
@@ -21,15 +19,11 @@ AOS.init({
 })
 
 // layouts
-
-// import Admin from "@/layouts/Admin.vue";
 import Principal from "@/layouts/Principal.vue";
-// import Auth from "@/layouts/Auth.vue";
 import PagesLayout from "@/layouts/PagesLayout.vue";
 import LABGEN from "@/layouts/LABGEN.vue";
 
-// views for Admin layout
-
+// views for layouts
 import Index from "@/views/pages/Index.vue";
 import LabGen from "@/views/pages/LabGen.vue";
 import Composition from "@/views/dimensions/Composition";
@@ -41,66 +35,76 @@ import Dashboard from "@/views/dimensions/Dashboard.vue"
 
 // routes
 const routes = [
+  // Ruta para home
   {
-    path: "/pages",
-    redirect: "/pages/Index",
+    path: "/",
     component: Principal,
     children: [
       {
-        path: "/",
+        path: "",
         component: Index,
-      },
-     
-    ],
+      }
+    ]
   },
+  
+  // Ruta para LabGen
   {
-    path: "/pages",
-    redirect: "/pages/LabGen",
+    path: "/labgen",
     component: LABGEN,
     children: [
       {
-        path: "/labgen",
+        path: "",
         component: LabGen,
       }
     ]
   },
+
+  // Ruta para dimensiones
   {
     path: "/dimensions",
-    redirect: "/composition",
     component: PagesLayout,
     children: [
       {
-        path: "/dashboard",
+        path: "",
+        redirect: "/dimensions/dashboard"
+      },
+      {
+        path: "dashboard",
         component: Dashboard,
       },
       {
-        path: "/dimensions/composition",
+        path: "composition",
         component: Composition,
       },
       {
-        path: "/dimensions/access",
+        path: "access",
         component: Access,
       },
       {
-        path: "/dimensions/resources",
+        path: "resources",
         component: Resources,
       },
       {
-        path: "/dimensions/inclusive",
+        path: "inclusive",
         component: Inclusive,
       },
       {
-        path: "/dimensions/conditioning",
+        path: "conditioning",
         component: Conditioning,
       },
     ],
   },
-  { path: "/:pathMatch(.*)*", redirect: "/" },
+  
+  // Fallback: redirige a la página principal
+  { 
+    path: "/:pathMatch(.*)*", 
+    redirect: "/" 
+  },
 ];
-
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
 });
+
 createApp(App).use(router).mount("#app");
