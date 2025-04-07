@@ -106,5 +106,4 @@ const router = createRouter({
   history: createWebHistory(process.env.NODE_ENV === "production" ? "/odg/" : "/"),
   routes,
 });
-
 createApp(App).use(router).mount("#app");
