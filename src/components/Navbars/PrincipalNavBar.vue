@@ -38,15 +38,15 @@
 
         <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
           <li class="flex items-center">
-            <a
+            <router-link
               class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase"
-              href="/#"
+              to="/"
             >
               <i
                 class="lg:text-blueGray-200 text-blueGray-400 fa fa-home text-lg leading-lg mr-2"
               />
               Inicio
-            </a>
+            </router-link>
           </li>
           <li class="flex items-center">
             <a
@@ -70,32 +70,32 @@
               Dimensiones
             </a>
           </li>
-          <li class="flex items-center">            
-            <a
-            class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase"
-            href="#/dashboard"
-          >
-            <i
-              class="lg:text-blueGray-200 text-blueGray-400 fa fa-line-chart text-lg leading-lg mr-2"
-            />
-            Dashboard
-          </a>    
+          <li class="flex items-center">
+            <router-link
+              class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase"
+              to="/dashboard"
+            >
+              <i
+                class="lg:text-blueGray-200 text-blueGray-400 fa fa-line-chart text-lg leading-lg mr-2"
+              />
+              Dashboard
+            </router-link>
           </li>
           <li class="flex items-center">
-            <a
+            <router-link
               class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase"
-              href="#/labgen"
+              to="/labgen"
             >
               <i
                 class="lg:text-blueGray-200 text-blueGray-400 fa fa-flask text-lg leading-lg mr-2"
               />
               LABGEN
-            </a>
+            </router-link>
           </li>
           <li class="flex items-center">
             <a
               class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase"
-              href="#/"
+              href="#"
             >
               <i
                 class="lg:text-blueGray-200 text-blueGray-400 fa fa-commenting text-lg leading-lg mr-2"
